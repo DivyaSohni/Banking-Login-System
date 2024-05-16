@@ -39,11 +39,11 @@ class Login:
 #################### OTP function #######################################
     def send_email(self,user_email_id,otp):
         # print(otp)
-        user_email = user_email_id               ########### jis email pr bhejna hai otp 
+        user_email = user_email_id              
 
         s = smtplib.SMTP('smtp.gmail.com', 587)
         s.starttls()
-        s.login("sohnid3@gmail.com", "ucvzcpaewaeiujzr")         ######## is email se bhejna hai or ye passkey hai mere email ki 
+        s.login("your email", "your passkey")        
         s.sendmail('BANK PASSWORD',user_email,str(otp))               
 
 #################### main page #######################################
