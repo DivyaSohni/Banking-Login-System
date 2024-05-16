@@ -10,7 +10,7 @@ import mysql.connector as sql
 
 def file_create(tbl_name):
     try:
-        con = sql.connect(host = 'localhost',user = 'root',password = 'root',database = 'userdata')
+        con = sql.connect(host = 'localhost',user = 'root',password = '*****',database = 'userdata')
 
     except Exception as e:
         print(f'{e}')
@@ -46,9 +46,9 @@ def file_create(tbl_name):
 def send_email_attachment(user_email_id, fn_name):
 
         # print(otp)
-        sender_email = "sohnid3@gmail.com"
-        sender_password = "ucvzcpaewaeiujzr"
-        reciver_email = user_email_id ########### jis email pr bhejna hai otp
+        sender_email = "*"
+        sender_password = "*"
+        reciver_email = user_email_id 
         msg = MIMEMultipart()
         msg['From'] = sender_email
         msg['To'] = reciver_email
@@ -66,7 +66,7 @@ def send_email_attachment(user_email_id, fn_name):
 
         s = smtplib.SMTP('smtp.gmail.com', 587)
         s.starttls()
-        s.login("sohnid3@gmail.com", "ucvzcpaewaeiujzr")         ######## is email se bhejna hai or ye passkey hai mere email ki 
+        s.login("*", "*")         
         s.send_message(msg)
 
         os.remove(fn) # to delete after send the email
@@ -74,8 +74,4 @@ def send_email_attachment(user_email_id, fn_name):
 
 
 file_create('manthan')
-send_email_attachment("sohnid3@gmail.com", 'statement.xlsx')
-# file_create('manthan')
-# send_email_attachment("tally.dilipsahu@gmail.com", 'statement.xlsx')
-# file_create('manthan')
-# send_email_attachment("manthanshukla71@gmail.com", 'statement.xlsx')
+send_email_attachment("*", 'statement.xlsx')
