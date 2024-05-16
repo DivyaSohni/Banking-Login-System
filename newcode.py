@@ -28,7 +28,7 @@ class Login:
             self.bg_image = Label(self.root,image=self.bg).place(x = 0,y=0,relwidth=1,relheight=1)
 
             try:
-                self.con = sql.connect(host = 'localhost',user = 'root',password = 'mysql@123',database = 'userdata')
+                self.con = sql.connect(host = 'localhost',user = '*',password = '*',database = 'userdata')
 
             except:
                 messagebox.showerror('Error',"Database Connectivity Issue Try Again")
@@ -350,13 +350,11 @@ class Login:
 
         heading_lbl_T = Label(Frame_Transaction,text='Transaction',font=('Impact',35,'bold'),bg='light blue',fg='#00154f').place(x = 110,y=10)
 
-        # back_Transaction_btn = Button(Frame_Transaction,text='←\nBack',bg='light blue',fg='#00154f',font=('bold',15),bd=0,activeforeground='#00154f',activebackground='light blue',cursor='hand2',command=backword_to_login)
-        # back_Transaction_btn.place(x = 5 ,y = 0)
+    
 
         lbl_current_balance = Label(Frame_Transaction,text='Current Balance - ',font=('Goudy old style',15,'bold'),fg='#363636',bg='light blue').place(x = 70,y=85)
         self.current_balance = Entry(Frame_Transaction,font=('times new roman',15),bg='#CCCCCC')
-        # acc_bal = self.show_balance(self.txt_user.get())
-        # acc_bal = str(acc_bal)
+
         
         self.current_balance.insert(END,self.show_balance(self.txt_user.get()))
         self.current_balance.place(x=70,y=120,width=350,height=35)
@@ -554,8 +552,8 @@ class Login:
         df = pd.DataFrame(statement)
         df.to_excel('statement.xlsx',index = False)
         print('File Created ---------')
-        sender_email = "sohnid3@gmail.com"
-        sender_password = "ucvzcpaewaeiujzr"
+        sender_email = "*"
+        sender_password = "*"
         reciver_email = email_d ########### jis email pr bhejna hai otp
         msg = MIMEMultipart()
         msg['From'] = sender_email
@@ -574,7 +572,7 @@ class Login:
 
         s = smtplib.SMTP('smtp.gmail.com', 587)
         s.starttls()
-        s.login("sohnid3@gmail.com", "ucvzcpaewaeiujzr")         ######## is email se bhejna hai or ye passkey hai mere email ki 
+        s.login("*", "*")         ######## is email se bhejna hai or ye passkey hai mere email ki 
         s.send_message(msg)
 
         os.remove(fn) # to delete after send the email
